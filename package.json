@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "branch": "node ./current_branch.js == master"
   },
+    "husky": {
+      "hooks": {
+        "pre-push": "node ./current_branch.js",
+      }
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iamsabin/test.git"
@@ -17,6 +23,7 @@
   },
   "homepage": "https://github.com/iamsabin/test#readme",
   "devDependencies": {
+    "current-git-branch": "^1.1.0",
     "husky": "^4.3.0"
   }
 }
