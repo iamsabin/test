@@ -9,7 +9,7 @@
   },
     "husky": {
       "hooks": {
-        "pre-push": "node ./current_branch.js",
+        "pre-push": "node ./current_branch.js"
       }
     },
   "repository": {
