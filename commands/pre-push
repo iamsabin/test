@@ -4,16 +4,16 @@
 echo -e "===\n>> Pre-push Hook: Checking branch name..."
 
 BRANCH=`git rev-parse --abbrev-ref HEAD`
-PROTECTED_BRANCHES="^(master|develop)"
+PROTECTED_BRANCHES="^(masters|develop)"
 CURRENT_EMAIL=`git config user.email`
-ALLOWED_EMAILS="^(mhr_sabin@hotmails.com|ajeetchaulagain@gmail.com)"
+ALLOWED_EMAILS="^(?!)(mhr_sabin@hotmails.com|ajeetchaulagain@gmail.com)"
 
 if [[ $1 != *"$BRANCH"* ]]
 then
   echo -e "\n🚫 You must use (git push origin $BRANCH).\n" && exit 1
 fi
 
-if [[ "$CURRENT_EMAIL" != $ALLOWED_EMAIL ]]
+if [[ "$CURRENT_EMAIL" =~ $ALLOWED_EMAILS ]]
 then
   echo -e "\n🚫 Cannot push to remote $BRANCH branch, you don't have right access." && exit 1
 fi 
