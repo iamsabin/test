@@ -13,7 +13,7 @@ then
   echo -e "\n🚫 You must use (git push origin $BRANCH).\n" && exit 1
 fi
 
-if [[ "$CURRENT_EMAIL" !=~ $ALLOWED_EMAIL ]]
+if [[ *"$CURRENT_EMAIL" != $ALLOWED_EMAIL ]]
 then
   echo -e "\n🚫 Cannot push to remote $BRANCH branch, please create your own branch and use PR." && exit 1
 fi 
